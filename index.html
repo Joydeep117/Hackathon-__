@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon 2024 - Apply & Check Status</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Hackathon 2024</h1>
+            <p class="subtitle">Innovation Challenge - Apply Now!</p>
+        </header>
+
+        <section class="hackathon-details">
+            <h2>📋 Hackathon Details</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="icon">📅</div>
+                    <h3>Date</h3>
+                    <p id="hackathon-date">March 15-17, 2024</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">📍</div>
+                    <h3>Location</h3>
+                    <p id="hackathon-location">Tech Innovation Center, Virtual & On-site</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">⏰</div>
+                    <h3>Duration</h3>
+                    <p id="hackathon-duration">48 Hours</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">💰</div>
+                    <h3>Prize Pool</h3>
+                    <p id="hackathon-prize">$50,000</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">👥</div>
+                    <h3>Team Size</h3>
+                    <p id="hackathon-team">2-4 Members</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">🎯</div>
+                    <h3>Themes</h3>
+                    <p id="hackathon-themes">AI/ML, Web3, FinTech, Healthcare</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="description">
+            <h2>About the Hackathon</h2>
+            <p>
+                Join us for an exciting 48-hour coding marathon where innovation meets opportunity! 
+                This hackathon brings together talented developers, designers, and entrepreneurs to 
+                build groundbreaking solutions. Whether you're a beginner or an expert, this is your 
+                chance to showcase your skills, network with industry leaders, and win amazing prizes.
+            </p>
+            <div class="highlights">
+                <h3>Key Highlights:</h3>
+                <ul>
+                    <li>Expert mentors and workshops</li>
+                    <li>Networking opportunities with industry professionals</li>
+                    <li>Free meals and swag for all participants</li>
+                    <li>Chance to present to top investors</li>
+                    <li>Career opportunities with sponsoring companies</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="application-form">
+            <h2>👥 Team Application Form</h2>
+            <form id="team-application-form" onsubmit="submitApplication(event)">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="team-name">Team Name *</label>
+                        <input type="text" id="team-name" required placeholder="Enter your team name">
+                    </div>
+                    <div class="input-group">
+                        <label for="team-lead-email">Team Lead Email *</label>
+                        <input type="email" id="team-lead-email" required placeholder="teamlead@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="team-lead-name">Team Lead Name *</label>
+                        <input type="text" id="team-lead-name" required placeholder="Full name">
+                    </div>
+                    <div class="input-group">
+                        <label for="team-lead-phone">Team Lead Phone *</label>
+                        <input type="tel" id="team-lead-phone" required placeholder="+1234567890">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Team Members (2-4 members required) *</label>
+                    <div id="members-container">
+                        <div class="member-input">
+                            <input type="text" class="member-name" placeholder="Member 1 Name" required>
+                            <input type="email" class="member-email" placeholder="Member 1 Email" required>
+                        </div>
+                        <div class="member-input">
+                            <input type="text" class="member-name" placeholder="Member 2 Name" required>
+                            <input type="email" class="member-email" placeholder="Member 2 Email" required>
+                        </div>
+                    </div>
+                    <button type="button" class="add-member-btn" onclick="addMemberField()">+ Add Member</button>
+                </div>
+
+                <div class="input-group">
+                    <label for="team-experience">Team Experience Level *</label>
+                    <select id="team-experience" required>
+                        <option value="">Select experience level</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+            <div id="application-result" class="result-container hidden"></div>
+        </section>
+
+        <section class="project-form">
+            <h2>💡 Project Submission</h2>
+            <p class="form-info">Submit your project details after applying for the hackathon.</p>
+            <form id="project-form" onsubmit="submitProject(event)">
+                <div class="input-group">
+                    <label for="application-id">Application ID *</label>
+                    <input type="text" id="application-id" required placeholder="Enter your application ID">
+                    <small>You received this ID after submitting your team application</small>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="project-name">Project Name *</label>
+                        <input type="text" id="project-name" required placeholder="Your amazing project name">
+                    </div>
+                    <div class="input-group">
+                        <label for="project-theme">Project Theme *</label>
+                        <select id="project-theme" required>
+                            <option value="">Select theme</option>
+                            <option value="ai-ml">AI/ML</option>
+                            <option value="web3">Web3</option>
+                            <option value="fintech">FinTech</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="project-description">Project Description *</label>
+                    <textarea id="project-description" rows="5" required placeholder="Describe your project idea, problem it solves, and target audience..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="tech-stack">Technology Stack *</label>
+                    <input type="text" id="tech-stack" required placeholder="e.g., React, Node.js, Python, MongoDB">
+                    <small>List the technologies you plan to use</small>
+                </div>
+
+                <div class="input-group">
+                    <label for="project-link">Project Repository/Link (Optional)</label>
+                    <input type="url" id="project-link" placeholder="https://github.com/yourproject">
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Project</button>
+            </form>
+            <div id="project-result" class="result-container hidden"></div>
+        </section>
+
+        <section class="selection-checker">
+            <h2>✅ Check Your Selection Status</h2>
+            <div class="checker-form">
+                <div class="input-group">
+                    <label for="check-application-id">Enter Application ID or Team Name:</label>
+                    <input 
+                        type="text" 
+                        id="check-application-id" 
+                        placeholder="Application ID or Team Name"
+                        autocomplete="off"
+                    >
+                </div>
+                <button id="check-btn" onclick="checkSelection()">Check Status</button>
+            </div>
+            <div id="result-container" class="result-container hidden">
+                <div id="result-message"></div>
+                <div id="application-details" class="application-details hidden"></div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>📊 Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-applications">0</div>
+                    <div class="stat-label">Total Applications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-projects">0</div>
+                    <div class="stat-label">Projects Submitted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="total-selected">0</div>
+                    <div class="stat-label">Selected Teams</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hackathon Organizers. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
